@@ -34,3 +34,10 @@ for (continent in unique(gap$continent)) {
 }
 
 # get the mean gdp in billions for every country
+
+for (country in unique(gap$country)) {
+  data <- gap[gap$country == country, ]
+  data$gdp <- data$pop * data$gdpPercap / 1e9
+  print(country)
+  print(mean(data$gdp))
+}
