@@ -1,0 +1,58 @@
+---
+title: "Demo markdown"
+author: "Jeff Stafford"
+date: "February 22, 2017"
+output: html_document
+---
+
+This is text.
+
+*this is italics*
+
+**this is bold**
+
+# This is a big header
+## a smaller header
+### an even smaller header
+
+-----------------------------------------------
+
+That makes a separator
+
+* item 1
+* item 2
+* item 3
+
+1. item 1
+2. item 2
+3. item 3
+
+```{r this would be the chunk name}
+print("some r code")
+5 + 4
+a <- 567
+```
+
+blah blah balh
+
+
+```{r}
+library(gapminder)
+library(ggplot2)
+
+ggplot(gapminder, aes(x = lifeExp, fill = continent)) + geom_density(alpha = 0.3) + theme_bw()
+
+```
+
+
+[this is a link](http://www.google.ca)
+
+
+![Parrot](http://yourshot.nationalgeographic.com/u/ss/fQYSUbVfts-T7pS2VP2wnKyN8wxywmXtY0-FwsgxoJBD4C1qJrqA8EfaP7jL8gZYg0MJlb9NNBxrHhmaSdwF/)
+
+```{r}
+library(dplyr)
+table <- gapminder %>% group_by(continent) %>% summarize(meanLife = mean(lifeExp), meanGDP = mean(gdpPercap), meanPop = mean(pop))
+knitr::kable(table)
+```
+
